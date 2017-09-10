@@ -1,7 +1,7 @@
 "use strict";
 var alert_error = false;
 function videoSearch() {
-    let url = $('#video_url').val()
+    let url = $('#video_url').val();
     let p1 = new Promise(function (resolve, failure) {
         if (url && typeof url == 'string') {
             url = url.replace(/https:\/\//, '');
@@ -13,9 +13,6 @@ function videoSearch() {
                 return;
             }
             let secondarr = arrurl[1].split('?');
-            console.log(arrurl)
-            console.log(firstarr)
-            console.log(secondarr)
             if (firstarr[1] == 'youtube' && secondarr[0] == 'watch') {
                 if (!secondarr[1]){
                     failure('bad_url');
@@ -30,18 +27,16 @@ function videoSearch() {
                         break;
                     }
                 }
-                console.log(videoID)
                 if (videoID && typeof videoID == 'string') {
                         let img_obj = getImages(videoID);
-                        write_results(img_obj)
-                        console.log(img_obj)
+                        resolve(img_obj);
                 } else {
                     failure('bad_url')
                 }
             } else {
-                if (firstarr[0] == 'youtu' && firstarr[1] == 'be') {
+                if (firstarr[1] && firstarr[0] == 'youtu' && firstarr[1] == 'be') {
                      let img_obj = getImages(secondarr[0]);
-                     write_results(img_obj)
+                      resolve(img_obj);
                 } else {
                     failure('bad_url')
                 }
@@ -51,9 +46,8 @@ function videoSearch() {
         }
     })
     p1.then(function (val) {
-
+        write_results(val)
     }, function (val) {
-        console.log(val)
         switch (val) {
             case 'no_url': newAlert('danger', 'Need a YouTube URL to get the image'); break;
             case 'bad_url': newAlert('danger', 'Need a valid YouTube URL'); break;
