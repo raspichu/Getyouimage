@@ -1,0 +1,16 @@
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity 0.15s linear;
+  -moz-transition: opacity 0.15s linear;
+  -o-transition: opacity 0.15s linear;
+  transition: opacity 0.15s linear;
+}
+.fade.in {
+  opacity: 1;
+}
+.img_width{
+    max-width: 50%;
+}
+.table > tbody > tr > td {
+     vertical-align: middle;
+}
