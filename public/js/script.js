@@ -77,7 +77,7 @@ function newAlert(type, message) {
 }
 function write_results(obj) {
     $('#results_body').empty();
-    let html = '<div><table class="table table-striped table-condensed"><thead><th>Type</th><th>Image</th><th>Url</th></thead><tbody>'
+    let html = '<div class="table-responsive"><table class="table table-striped table-condensed"><thead><th>Type</th><th>Image</th><th>Url</th></thead><tbody>'
     for (let image in obj) {
         console.log(image)
         if (image=='thumbnail 0 480x360'){html+='<tr><td><small>thumbnails <small>(0 is hqdefault too)</small></small></td><td><hr></td><td><hr></td></tr>'}
