@@ -89,6 +89,7 @@ function write_results(obj) {
     $('#results_body').html(html)
     //$('#results').css('display','');
     $('#results').fadeIn();
+  
 }
 function checkImage(imageSrc, good, bad) {
     var img = new Image();
