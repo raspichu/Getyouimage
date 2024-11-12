@@ -2,4 +2,4 @@
 
 Obtains all the sizes of any youtube thumbnail image
 
-You can try it out in: https://zenstt.com/getyouimage/
+You can try it out in: https://raspichu.moe/getyouimage/
